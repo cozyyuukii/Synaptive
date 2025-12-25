@@ -44,7 +44,7 @@ To run this locally:
 
 1. Clone the repository:
 ```bash
-git clone [https://github.com/cozyyuukii/synaptive.git](https://github.com/cozyyuukii/synaptive.git)
+git clone https://github.com/cozyyuukii/synaptive.git
 
 ```
 
