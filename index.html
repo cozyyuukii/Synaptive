@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Synaptive.</title>
+    
+    <link rel="stylesheet" href="style.css">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@1,600;1,700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.146.0/build/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js"></script>
+</head>
+<body class="flex flex-col min-h-screen">
+
+    <div id="loader">
+        <div class="loader-content">
+            <div class="spinner"></div>
+            <span class="font-extrabold text-xl tracking-tight text-stone-900">Synaptive.</span>
+        </div>
+    </div>
+
+    <nav id="navbar" class="flex justify-between items-center">
+        <a href="#" class="flex items-center gap-2 group glass-style glass-brand-mobile">
+            <span class="text-xl font-extrabold tracking-tight text-stone-900">Synaptive.</span>
+        </a>
+
+        <div class="hidden md:flex absolute left-1/2 transform -translate-x-1/2 glass-style glass-nav-container">
+            <a href="#about" class="nav-link">Expertise</a>
+            <a href="#services" class="nav-link">Stack</a>
+            <a href="#portfolio" class="nav-link">Work</a>
+        </div>
+
+        <div class="hidden md:block">
+            <a href="#contact" class="btn-primary py-3 px-6 text-sm">Start Project</a>
+        </div>
+
+        <button class="md:hidden text-stone-800 focus:outline-none pointer-events-auto absolute right-6" onclick="toggleMobileMenu()">
+            <i data-lucide="menu"></i>
+        </button>
+    </nav>
+
+    <div id="mobile-menu" class="fixed top-24 left-1/2 w-[90%] bg-[#F9F9F7] border border-gray-200 rounded-2xl p-8 md:hidden flex-col gap-6 shadow-2xl z-50">
+        <a href="#about" class="text-xl font-bold text-stone-800" onclick="toggleMobileMenu()">Expertise</a>
+        <a href="#services" class="text-xl font-bold text-stone-800" onclick="toggleMobileMenu()">Stack</a>
+        <a href="#portfolio" class="text-xl font-bold text-stone-800" onclick="toggleMobileMenu()">Work</a>
+        <a href="#contact" class="text-xl font-bold text-stone-900" onclick="toggleMobileMenu()">Start Project</a>
+    </div>
+
+    <main class="flex-grow pt-0 relative">
+
+        <section id="home" class="relative flex flex-col items-center text-center px-6 min-h-screen justify-center">
+            
+            <div id="hero-canvas-container"></div>
+
+            <div class="max-w-4xl mx-auto z-10 reveal active">
+                <h1 class="text-5xl md:text-7xl lg:text-8xl mb-8 tracking-tight text-slate-900">
+                    We Build <br>
+                    <span class="highlight-text font-accent">Everything Web.</span>
+                </h1>
+               <p class="text-lg md:text-xl max-w-2xl mx-auto mb-12 leading-relaxed font-bold text-slate-800 white-glow">
+    Full-cycle development from abstract ideas to deployed reality. No templates, just engineering.
+</p>
+
+                <div class="flex flex-col sm:flex-row gap-6 justify-center items-center">
+                    <a href="#contact" class="btn-primary">
+                        Discuss Your Build
+                    </a>
+                    <a href="#portfolio" class="font-bold transition-colors flex items-center gap-2 group hover:text-yellow-600 text-slate-900">
+                        View Recent Work
+                        <i data-lucide="arrow-down" class="w-5 h-5 transition-transform group-hover:translate-y-1"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="section-padding">
+            <div class="container-custom">
+                <div class="flex flex-col items-start md:items-center gap-6 md:gap-10 reveal">
+                    
+                    <div class="w-full max-w-3xl text-left md:text-left px-4 md:px-0">
+                        <h2 class="text-4xl md:text-5xl leading-tight text-slate-900">
+                            Development without <br>
+                            <span class="font-accent" style="color: var(--accent-secondary);">boundaries.</span>
+                        </h2>
+                    </div>
+                    
+                    <div class="w-full max-w-3xl px-4 md:px-0 text-left md:text-left">
+                        <p class="text-lg md:text-xl mb-6 leading-relaxed font-semibold text-slate-800">
+                            Synaptive is purely focused on engineering. Led by <strong class="text-black">Adwaith</strong> and <strong class="text-black">Pranav</strong>, we strip away the fluff to focus on what matters: <strong>Clean, Scalable Code.</strong>
+                        </p>
+                        <p class="text-base md:text-lg opacity-90 leading-relaxed text-slate-700 font-medium">
+                            Whether you need a robust SaaS platform, a dynamic e-commerce engine, or a bespoke internal tool, we have the technical depth to deliver it.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="services" class="section-padding">
+            <div class="container-custom">
+                <div class="text-center max-w-3xl mx-auto mb-16 reveal">
+                    <span class="text-sm font-bold tracking-widest uppercase mb-4 block" style="color: var(--accent-secondary);">Our Capabilities</span>
+                    <h2 class="text-3xl md:text-5xl mb-6">If you can imagine it,<br>we can code it.</h2>
+                </div>
+
+                <div class="main-browser-frame reveal delay-100">
+                    <div class="main-browser-header">
+                        <div class="browser-top-strip">
+                            <div class="flex gap-2">
+                                <div class="dot" style="background: #FF5F56;"></div>
+                                <div class="dot" style="background: #FFBD2E;"></div>
+                                <div class="dot" style="background: #27C93F;"></div>
+                            </div>
+                            <div class="tab-bar flex-grow">
+                                <div class="browser-tab">
+                                    <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                                    synaptive.space/stack
+                                    <i data-lucide="x" class="w-3 h-3 ml-2 opacity-50"></i>
+                                </div>
+                                <div class="p-2 text-gray-400"><i data-lucide="plus" class="w-4 h-4"></i></div>
+                            </div>
+                        </div>
+                        
+                        <div class="toolbar">
+                            <div class="nav-buttons">
+                                <i data-lucide="arrow-left" class="w-4 h-4"></i>
+                                <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                                <i data-lucide="rotate-cw" class="w-4 h-4"></i>
+                            </div>
+                            <div class="main-address-bar hidden md:flex">
+                                <span>synaptive.dev/stack</span>
+                                <i data-lucide="lock" class="w-3 h-3 text-green-600"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="main-browser-content">
+                        <div class="bento-grid">
+                            <div class="bento-card col-span-full-mobile row-span-2">
+                                <div class="mb-4 bg-yellow-100 w-10 h-10 flex items-center justify-center rounded-lg text-yellow-600">
+                                    <i data-lucide="layout" class="w-6 h-6"></i>
+                                </div>
+                                <h3 class="text-xl font-bold mb-2">Modern Frontend</h3>
+                                <p class="text-sm text-gray-500 mb-4">Pixel-perfect, reactive UIs built for performance and accessibility.</p>
+                                <div class="mt-auto">
+                                    <span class="tech-pill">React.js</span>
+                                    <span class="tech-pill">Next.js 14</span>
+                                    <span class="tech-pill">Vue 3</span>
+                                    <span class="tech-pill">Tailwind CSS</span>
+                                    <span class="tech-pill">TypeScript</span>
+                                </div>
+                            </div>
+                            
+                            <div class="bento-card col-span-full-mobile">
+                                <div class="flex items-start justify-between">
+                                    <div>
+                                        <h3 class="text-lg font-bold mb-1">Robust Backend</h3>
+                                        <p class="text-xs text-gray-500">Scalable server-side logic.</p>
+                                    </div>
+                                    <div class="bg-stone-100 p-2 rounded-lg text-stone-600">
+                                        <i data-lucide="server" class="w-5 h-5"></i>
+                                    </div>
+                                </div>
+                                <div class="mt-4">
+                                    <span class="tech-pill">Node.js</span>
+                                    <span class="tech-pill">Python</span>
+                                    <span class="tech-pill">GoLang</span>
+                                    <span class="tech-pill">Laravel</span>
+                                </div>
+                            </div>
+                            
+                            <div class="bento-card">
+                                <h3 class="text-lg font-bold mb-2 relative z-10">Data</h3>
+                                <div class="text-sm text-gray-500 space-y-1 relative z-10">
+                                    <div>PostgreSQL</div>
+                                    <div>MongoDB</div>
+                                    <div>Redis</div>
+                                </div>
+                            </div>
+                            
+                            <div class="bento-card">
+                                <h3 class="text-lg font-bold mb-2 relative z-10">Cloud</h3>
+                                <div class="text-sm text-gray-500 space-y-1 relative z-10">
+                                    <div>AWS</div>
+                                    <div>Docker</div>
+                                    <div>CI/CD</div>
+                                </div>
+                            </div>
+                            
+                            <div class="bento-card col-span-full-mobile">
+                                <div class="flex items-center gap-3 mb-3">
+                                    <div class="bg-purple-100 p-2 rounded-lg text-purple-600">
+                                        <i data-lucide="bot" class="w-5 h-5"></i>
+                                    </div>
+                                    <h3 class="text-lg font-bold">AI & Automation</h3>
+                                </div>
+                                <p class="text-xs text-gray-500 mb-3">Integrating intelligence into your workflows.</p>
+                                <div>
+                                    <span class="tech-pill">OpenAI</span>
+                                    <span class="tech-pill">LangChain</span>
+                                    <span class="tech-pill">Custom LLMs</span>
+                                </div>
+                            </div>
+                            
+                             <div class="bento-card col-span-full-mobile">
+                                <div class="flex items-center gap-3 mb-3">
+                                    <div class="bg-green-100 p-2 rounded-lg text-green-600">
+                                        <i data-lucide="smartphone" class="w-5 h-5"></i>
+                                    </div>
+                                    <h3 class="text-lg font-bold">Mobile Native</h3>
+                                </div>
+                                <div>
+                                    <span class="tech-pill">React Native</span>
+                                    <span class="tech-pill">Flutter</span>
+                                    <span class="tech-pill">PWA</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="py-12 flex items-center gap-4">
+                            <div class="h-px bg-gray-200 flex-grow"></div>
+                            <h3 class="text-sm font-extrabold text-stone-400 tracking-widest uppercase">Expanded Services</h3>
+                            <div class="h-px bg-gray-200 flex-grow"></div>
+                        </div>
+
+                        <div class="bento-grid">
+                            <div class="bento-card col-span-full-mobile hover:border-teal-300">
+                                <div class="flex items-start gap-4">
+                                    <div class="bg-teal-50 p-2.5 rounded-xl text-teal-600 shrink-0">
+                                        <i data-lucide="monitor-smartphone" class="w-6 h-6"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="text-lg font-bold mb-2">Basic, Mobile-Friendly Websites</h3>
+                                        <p class="text-sm text-gray-500 leading-relaxed">
+                                            Crafting clean, responsive websites that look great on any device.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="bento-card col-span-full-mobile hover:border-yellow-300">
+                                <div class="flex items-start gap-4">
+                                    <div class="bg-yellow-50 p-2.5 rounded-xl text-yellow-600 shrink-0">
+                                        <i data-lucide="file-text" class="w-6 h-6"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="text-lg font-bold mb-2">SEO-Optimized Blog Writing</h3>
+                                        <p class="text-sm text-gray-500 leading-relaxed">
+                                            Developing engaging and keyword-rich blog content.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="bento-card col-span-full-mobile hover:border-indigo-300">
+                                <div class="flex items-start gap-4">
+                                    <div class="bg-indigo-50 p-2.5 rounded-xl text-indigo-600 shrink-0">
+                                        <i data-lucide="pen-tool" class="w-6 h-6"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="text-lg font-bold mb-2">Engaging Copywriting</h3>
+                                        <p class="text-sm text-gray-500 leading-relaxed">
+                                            Writing compelling copy for websites, ads, and marketing materials.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="bento-card col-span-full-mobile hover:border-violet-300">
+                                <div class="flex items-start gap-4">
+                                    <div class="bg-violet-50 p-2.5 rounded-xl text-violet-600 shrink-0">
+                                        <i data-lucide="message-circle" class="w-6 h-6"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="text-lg font-bold mb-2">Chatbot Setup (AI-Assisted)</h3>
+                                        <p class="text-sm text-gray-500 leading-relaxed">
+                                            Implementing AI-powered chatbots to enhance customer engagement.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="bento-card col-span-full-mobile hover:border-rose-300">
+                                <div class="flex items-start gap-4">
+                                    <div class="bg-rose-50 p-2.5 rounded-xl text-rose-600 shrink-0">
+                                        <i data-lucide="mail" class="w-6 h-6"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="text-lg font-bold mb-2">Automated Email/Newsletter Content</h3>
+                                        <p class="text-sm text-gray-500 leading-relaxed">
+                                            Creating and scheduling AI-assisted email campaigns.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="bento-card col-span-full-mobile hover:border-blue-300">
+                                <div class="flex items-start gap-4">
+                                    <div class="bg-blue-50 p-2.5 rounded-xl text-blue-600 shrink-0">
+                                        <i data-lucide="share-2" class="w-6 h-6"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="text-lg font-bold mb-2">Social Media Post Generation</h3>
+                                        <p class="text-sm text-gray-500 leading-relaxed">
+                                            Generating creative and consistent social media content.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="portfolio" class="section-padding">
+            <div class="container-custom">
+                <div class="mb-12 text-center reveal">
+                    <h2 class="text-3xl md:text-4xl">Recent Deployments</h2>
+                    <p class="mt-4 text-lg opacity-80">Live production builds.</p>
+                </div>
+
+                <div class="deployment-stage reveal delay-100" id="carousel-stage">
+                    </div>
+            </div>
+        </section>
+
+        <section id="contact" class="section-padding">
+            <div class="container-custom">
+                <div class="max-w-4xl mx-auto reveal">
+                    <div class="text-center mb-12">
+                        <h2 class="text-3xl md:text-5xl mb-4">Ready to build?</h2>
+                        <p class="opacity-70">Tell us about your technical requirements.</p>
+                    </div>
+
+                    <div class="relative max-w-lg mx-auto min-h-[450px]">
+                        
+                        <form id="contact-form" onsubmit="handleFormSubmit(event)" class="space-y-6 transition-all duration-500 ease-in-out" novalidate>
+                            <input type="hidden" name="_subject" value="New Synaptive Project Inquiry">
+                            <input type="hidden" name="_captcha" value="false">
+                            <input type="hidden" name="_template" value="table">
+
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div class="flex flex-col">
+                                    <input type="text" id="contact-name" name="name" placeholder="Name" class="form-input" required>
+                                    <span id="name-error" class="text-red-500 text-xs mt-2 hidden font-medium">
+                                        Name must contain only letters and spaces.
+                                    </span>
+                                </div>
+
+                                <div class="flex flex-col">
+                                    <input type="email" id="contact-email" name="email" placeholder="Email" class="form-input" required>
+                                    <span id="email-error" class="text-red-500 text-xs mt-2 hidden font-medium">
+                                        Please enter a valid email address.
+                                    </span>
+                                </div>
+                            </div>
+
+                            <input type="text" id="contact-project" name="project_type" placeholder="Project Type" class="form-input" required>
+                            <textarea id="contact-message" name="message" rows="4" placeholder="Brief project description..." class="form-input" required></textarea>
+                            
+                            <button type="submit" id="submit-btn" class="btn-primary w-full py-4 text-lg group">
+                                <span class="relative z-10 flex items-center gap-2">
+                                    Initialize Project <i data-lucide="chevron-right" class="w-4 h-4 transition-transform group-hover:translate-x-1"></i>
+                                </span>
+                            </button>
+                        </form>
+
+                        <div id="success-card" class="hidden absolute inset-0 flex-col items-center justify-center text-center p-8 glass-style border-green-500/30 shadow-2xl transition-all duration-500 transform scale-95 opacity-0">
+                            <div class="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center text-green-600 mb-6 shadow-lg shadow-green-100/50">
+                                <i data-lucide="check" class="w-10 h-10"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold mb-2 text-stone-900">Transmission Received</h3>
+                            <p class="text-stone-600 mb-8 leading-relaxed">
+                                Your project parameters have been logged. <br>
+                                We will analyze the requirements and establish a connection shortly.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="py-6">
+        <div class="container-custom">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+                
+                <div class="text-center md:text-left">
+                     <span class="font-extrabold text-2xl tracking-tight text-stone-900">Synaptive.</span>
+                </div>
+
+                <div class="text-center md:text-right space-y-1 opacity-60 text-sm" style="color: var(--text-dark);">
+                    <p>&copy; 2025 Synaptive.</p>
+                    <p class="text-xs">synaptive.co.in@gmail.com</p>
+                </div>
+                
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
